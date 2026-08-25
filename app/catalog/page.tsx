@@ -1,31 +1,25 @@
 "use client";
 
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { getCampers } from "@/lib/api";
-import { Camper, CamperListResponse } from "@/types/camper";
+import { getCampers } from "@/lib/api";  
 import CamperCard from "@/components/CamperCard/CamperCard";
 
 export default function CatalogPage() {
-  const { data, fetchNextPage, hasNextPage, isLoading } = useInfiniteQuery<CamperListResponse>({
+  const { data, fetchNextPage, hasNextPage } = useInfiniteQuery({
     queryKey: ["campers"],
-    queryFn: ({ pageParam }) => getCampers(pageParam as number, ""),
+      queryFn: ({ pageParam = 1 }) => getCampers(pageParam, ""),
+    initialPageParam: 1, 
     getNextPageParam: (lastPage, pages) =>
-      lastPage.page < lastPage.totalPages ? pages.length + 1 : undefined,
-    initialPageParam: 1,
+      lastPage.page < lastPage.totalPages ? pages.length + 1 : undefined, 
   });
-
-  if (isLoading) return <p>Loading...</p>;
 
   return (
     <div>
+      <h2>Catalog</h2>
       {data?.pages.map((page) =>
-        page.campers.map((camper: Camper) => (
-          <CamperCard key={camper.id} camper={camper} />
-        ))
+        page.campers.map((camper) => <CamperCard key={camper.id} camper={camper} />)
       )}
-      {hasNextPage && (
-        <button onClick={() => fetchNextPage()}>Load More</button>
-      )}
+      {hasNextPage && <button onClick={() => fetchNextPage()}>Load More</button>}
     </div>
   );
 }

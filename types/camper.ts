@@ -1,4 +1,3 @@
-// Відгуки
 export interface Review {
   id: string;
   user: string;
@@ -6,7 +5,6 @@ export interface Review {
   comment: string;
 }
 
-// Галерея зображень
 export interface GalleryImage {
   id: string;
   camperId: string;
@@ -15,7 +13,6 @@ export interface GalleryImage {
   order: number;
 }
 
-// Кемпер (деталі)
 export interface Camper {
   id: string;
   name: string;
@@ -40,7 +37,6 @@ export interface Camper {
   reviews?: Review[]; 
 }
 
-// Відповідь для списку кемперів (каталог)
 export interface CamperListResponse {
   page: number;
   perPage: number;
@@ -49,7 +45,6 @@ export interface CamperListResponse {
   campers: Camper[];
 }
 
-// Дані для бронювання
 export interface BookingData {
   name: string;
   email: string;

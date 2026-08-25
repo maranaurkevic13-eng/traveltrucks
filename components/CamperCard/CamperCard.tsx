@@ -10,17 +10,13 @@ export default function CamperCard({ camper }: CamperCardProps) {
 
   return (
     <div className="camper-card">
-      <Image
-        src={imageSrc}
-        alt={camper.name}
-        width={300}
-        height={200}
-        className="camper-image"
-      />
+      <Image src={imageSrc} alt={camper.name} width={300} height={200} />
       <h3>{camper.name}</h3>
       <p>{camper.location}</p>
       <p>€{camper.price}</p>
-      <button>Show more</button>
+      <a href={`/catalog/${camper.id}`} target="_blank">
+        <button>Show more</button>
+      </a>
     </div>
   );
 }

@@ -1,3 +1,4 @@
+// Відгуки
 export interface Review {
   id: string;
   user: string;
@@ -5,26 +6,52 @@ export interface Review {
   comment: string;
 }
 
+// Галерея зображень
+export interface GalleryImage {
+  id: string;
+  camperId: string;
+  thumb: string;
+  original: string;
+  order: number;
+}
+
+// Кемпер (деталі)
 export interface Camper {
   id: string;
   name: string;
-  location: string;
   price: number;
-  images: string[];
+  rating: number;
+  totalReviews: number;
+  location: string;
   description: string;
+  form: string; 
+  length: string;
+  width: string;
+  height: string;
+  tank: string;
+  consumption: string;
   transmission: "manual" | "automatic";
   engine: "diesel" | "petrol" | "electric";
-  bodyType: "van" | "motorhome" | "caravan";
-  reviews: Review[];
+  amenities: string | string[]; 
+  coverImage?: string;
+  gallery: GalleryImage[];
+  createdAt: string;
+  updatedAt: string;
+  reviews?: Review[]; 
 }
 
-export interface PaginatedResponse {
-  items: Camper[];
-  hasMore: boolean;
+// Відповідь для списку кемперів (каталог)
+export interface CamperListResponse {
+  page: number;
+  perPage: number;
+  total: number;
+  totalPages: number;
+  campers: Camper[];
 }
 
+// Дані для бронювання
 export interface BookingData {
   name: string;
   email: string;
-  date: string;
+  date: string; 
 }

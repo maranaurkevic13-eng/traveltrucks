@@ -35,9 +35,9 @@ export const metadata: Metadata = {
     description: "Browse and book campers with TravelTrucks",
     images: [
       {
-        url: "/icon.png", // 👈 зроби картинку у public/
-        width: 32,
-        height: 32,
+        url: "/public/hero.jpg", // 👈 зроби картинку у public/
+        width: 1200,
+        height: 630,
         alt: "TravelTrucks",
       },
     ],

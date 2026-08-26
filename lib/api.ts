@@ -4,7 +4,7 @@ import { Camper, CamperListResponse, BookingData, Review } from "@/types/camper"
 const API_URL = "https://campers-api.goit.study";
 
 export const getCampers = async (page: number, filters: string): Promise<CamperListResponse> => {
-  const res = await axios.get(`${API_URL}/campers?page=${page}&limit=4&${filters}`);
+  const res = await axios.get(`${API_URL}/campers?page=${page}&limit=4${filters}`);
   return res.data;
 };
 

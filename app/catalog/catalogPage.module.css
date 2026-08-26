@@ -1,0 +1,34 @@
+.cardPage {
+    display: flex;
+    gap: 65px;
+    align-items: flex-start;
+    padding: 48px 64px 52px 63px;
+}
+
+/* Права колонка: розміщує картки та кнопку вертикально (одну під одною) */
+.catalogContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Центрує кнопку Load More внизу */
+}
+
+.loadMoreBtn {
+    margin-top: 8px;
+    border: 1px solid var(--gray-light);
+    border-radius: 200px;
+    padding: 16px 32px;
+    width: 145px;
+    height: 56px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: var(--main);
+    background-color: var(--white);
+    align-items: center;
+}
+
+.loadMoreBtn:hover {
+    border: 1px solid var(--green-hover);
+}

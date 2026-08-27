@@ -1,7 +1,8 @@
-import { getCamperById, getCamperReviews, bookCamper } from "@/lib/api";
+import { getCamperById, getCamperReviews } from "@/lib/api";
 import Gallery from "@/components/Gallery/Gallery";
 import css from "./camperld.module.css";
 import CamperDetails from "@/components/CamperDetails/CamperDetails";
+import BookingForm from "@/components/BookingForm/BookingForm";
 
 interface CamperPageProps {
   params: Promise<{ camperId: string }>;
@@ -40,23 +41,7 @@ export default async function CamperPage({ params }: CamperPageProps) {
 
       
       <div>
-        <h3>Book this camper</h3>
-      <form
-        action={async (formData: FormData) => {
-          "use server";
-          const bookingData = {
-            name: formData.get("name") as string,
-            email: formData.get("email") as string,
-            date: formData.get("date") as string,
-          };
-          await bookCamper(camperId, bookingData);
-        }}
-      >
-        <input name="name" placeholder="Your name" required />
-        <input name="email" placeholder="Your email" required />
-        <input type="date" name="date" required />
-        <button type="submit">Book now</button>
-      </form>
+        <BookingForm camperId={camper.id} />
       </div>
     
       

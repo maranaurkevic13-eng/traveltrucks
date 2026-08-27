@@ -1,0 +1,45 @@
+.formWrapper {
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+}
+
+.input {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.button {
+    padding: 10px;
+    background: #2a7a2a;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.button:disabled {
+    background: #999;
+}
+
+.error {
+    color: red;
+    font-size: 13px;
+}
+
+.notification {
+    margin-top: 12px;
+    font-weight: bold;
+}

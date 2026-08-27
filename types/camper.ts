@@ -48,5 +48,5 @@ export interface CamperListResponse {
 export interface BookingData {
   name: string;
   email: string;
-  date: string; 
+  date?: string; 
 }

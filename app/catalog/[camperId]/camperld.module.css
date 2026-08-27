@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 64px;
+}
+
+.container>div {
+    flex: 0 0 calc(50% - 24px);
+    /* кожна картка займає половину ширини */
+}

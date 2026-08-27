@@ -1,5 +1,7 @@
 import { getCamperById, getCamperReviews, bookCamper } from "@/lib/api";
-import Image from "next/image";
+import Gallery from "@/components/Gallery/Gallery";
+import css from "./camperld.module.css";
+import CamperDetails from "@/components/CamperDetails/CamperDetails";
 
 interface CamperPageProps {
   params: Promise<{ camperId: string }>;
@@ -7,33 +9,24 @@ interface CamperPageProps {
 
 export default async function CamperPage({ params }: CamperPageProps) {
   const { camperId } = await params;
-    const camper = await getCamperById(camperId);
-    if (!camper) return <p>No camper found</p>;
-  const reviews = await getCamperReviews(camperId);
-
+  const camper = await getCamperById(camperId);
   if (!camper) return <p>No camper found</p>;
 
-  return (
-    <div>
-      <h2>{camper.name}</h2>
-      <p>{camper.description}</p>
+  const reviews = await getCamperReviews(camperId);   
 
-      <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-        {camper.gallery.map((img) => (
-          <Image key={img.id} src={img.original} alt={camper.name} width={400} height={300} />
-        ))}
+  return (
+    <div className={css.container}>
+      {/* Галерея з 5 фото */}
+      <div><Gallery images={camper.gallery} name={camper.name} /></div>
+
+
+      <div>
+        <CamperDetails camper={camper} />
       </div>
 
-      <h3>Specs</h3>
-      <ul>
-        <li>Location: {camper.location}</li>
-        <li>Price: €{camper.price}</li>
-        <li>Engine: {camper.engine}</li>
-        <li>Transmission: {camper.transmission}</li>
-        <li>Amenities: {Array.isArray(camper.amenities) ? camper.amenities.join(", ") : camper.amenities}</li>
-      </ul>
 
-      <h3>Reviews ({reviews.length})</h3>
+      <div>
+        <h3>Reviews ({reviews.length})</h3>
       <ul>
         {reviews.map((r) => (
           <li key={r.id}>
@@ -42,8 +35,12 @@ export default async function CamperPage({ params }: CamperPageProps) {
           </li>
         ))}
       </ul>
+      </div>
 
-      <h3>Book this camper</h3>
+
+      
+      <div>
+        <h3>Book this camper</h3>
       <form
         action={async (formData: FormData) => {
           "use server";
@@ -60,6 +57,9 @@ export default async function CamperPage({ params }: CamperPageProps) {
         <input type="date" name="date" required />
         <button type="submit">Book now</button>
       </form>
+      </div>
+    
+      
     </div>
   );
 }

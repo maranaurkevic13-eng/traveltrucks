@@ -1,0 +1,31 @@
+.gallery {
+    width: 638px;
+    height: 676px;
+    position: relative;
+}
+
+.mainSwiper {
+    width: 638px;
+    height: 505px;
+    margin-bottom: 27px;
+    border-radius: 17px;
+}
+
+.mainImage {
+    object-fit: cover;
+}
+
+.thumbImage:active {
+    border: 3px solid var(--grey-green);
+}
+
+.thumbImage {
+    border-radius: 16px;
+    width: 136px;
+    height: 144px;
+    gap: 10px;
+}
+
+.swiperSlideMini {
+    margin-left: 3px;
+}

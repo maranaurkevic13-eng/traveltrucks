@@ -13,6 +13,9 @@ interface CamperCardProps {
 
 export default function CamperCard({ camper }: CamperCardProps) {
   const imageSrc = camper.coverImage ?? camper.gallery[0]?.thumb ?? "/placeholder.jpg";
+  const formatTag = (value: string) => {
+  return value.replace("_", " "); // semi_integrated → semi integrated
+};
 
   return (
     <div className={styles.card}>
@@ -36,14 +39,14 @@ export default function CamperCard({ camper }: CamperCardProps) {
         {/* Динамічні бейджі */}
     <div className={styles.tags}>
           <span className={styles.tag}>
-            <MdLocalGasStation/>
-            {camper.engine}</span>
+            <MdLocalGasStation />
+            {formatTag(camper.engine)}</span>
           <span className={styles.tag}>
-            <LiaSitemapSolid/>
-            {camper.transmission}</span>
+            <LiaSitemapSolid />
+            {formatTag(camper.transmission)}</span>
           <span className={styles.tag}>
             <RiCarFill/>
-            {camper.form}</span>
+            {formatTag(camper.form)}</span>
     </div>
       <a href={`/catalog/${camper.id}`} target="_blank">
         <button className={styles.button}>Show more</button>

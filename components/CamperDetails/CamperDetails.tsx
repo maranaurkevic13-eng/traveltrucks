@@ -6,6 +6,15 @@ import { FaStar } from "react-icons/fa6";
 import { BsMap } from "react-icons/bs";
 
 export default function CamperDetails({ camper }: { camper: Camper }) {
+    const formatTag = (value: string) => {
+  return value
+    .replace(/_/g, " ") 
+    .split(" ")          
+    .map(
+      (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+    )                  
+    .join(" ");         
+};
   return (
       <div className={styles.detailsWrapper}>
           <div className={styles.infoList}>
@@ -25,14 +34,27 @@ export default function CamperDetails({ camper }: { camper: Camper }) {
           <div className={styles.detailsContainer}>
             <h3>Vehicle details</h3>
               {Array.isArray(camper.amenities) && (
-        <ul className={styles.featuresList}>
-          {camper.amenities.map((amenity, i) => (
-            <li key={i}>{amenity}</li>
-          ))}
-            <li>{camper.engine}</li>
-           <li>{camper.transmission}</li>
-        </ul>
-              )}  
+                <ul className={styles.featuresList}>
+                  {(() => {
+                       const base = [
+                          formatTag(camper.form),
+                          formatTag(camper.engine),
+                          formatTag(camper.transmission),
+                          ].filter(Boolean);
+                    const amenitiesArray = Array.isArray(camper.amenities)
+                    ? camper.amenities
+                    : [camper.amenities];
+
+                    const rest = amenitiesArray.filter(
+                    (item) => !base.includes(item)
+                    );
+
+                const finalList = [...base, ...rest].slice(0, 6);
+
+                          return finalList.map((amenity, i) => <li key={i}>{formatTag(amenity)}</li>);
+                })()}
+                </ul>
+              )} 
         <ul className={styles.detailsList}>
            <li>Form {camper.form}</li>
            <li>Length {camper.length}</li>

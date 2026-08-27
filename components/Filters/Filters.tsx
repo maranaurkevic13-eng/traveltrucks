@@ -25,6 +25,8 @@ export default function Filters({ onApply }: FiltersProps) {
           .filter(([, value]) => Boolean(value))
           .map(([key, value]) => `${key}=${value}`)
           .join("&");
+
+        console.log("Filters string:", filters); 
         onApply(filters);
       }}
     >
@@ -35,127 +37,68 @@ export default function Filters({ onApply }: FiltersProps) {
             Location
             <Field
               name="location"
-              placeholder="Kyiv"
+              placeholder="City"
               className={styles.input}
             />
           </label>
 
           <h3 className={styles.formTitle}>Filters</h3>
 
-          {/* Camper form */}
-          
-            <p className={styles.radioTitle}>Camper form</p>
-            <div className={styles.radioGroup}>
-              <label className={styles.radioOption}>
-                <Field
-                  type="radio"
-                  name="form"
-                  value="alcove"
-                  className={styles.radioInput}
-                />
-                <span>Alcove</span>
-              </label>
-
-              <label className={styles.radioOption}>
-                <Field
-                  type="radio"
-                  name="form"
-                  value="panel_van"
-                  className={styles.radioInput}
-                />
-                <span>Panel Van</span>
-              </label>
-
-              <label className={styles.radioOption}>
-                <Field
-                  type="radio"
-                  name="form"
-                  value="integrated"
-                  className={styles.radioInput}
-                />
-                <span>Integrated</span>
-              </label>
-
-              <label className={styles.radioOption}>
-                <Field
-                  type="radio"
-                  name="form"
-                  value="semi_integrated"
-                  className={styles.radioInput}
-                />
-                <span>Semi Integrated</span>
-              </label>
-            </div> 
+       {/* Camper form */}
+      <p className={styles.radioTitle}>Camper form</p>
+      <div className={styles.radioGroup}>
+          <label className={styles.radioOption}>
+            <Field type="radio" name="form" value="alcove" className={styles.radioInput} />
+            <span className={styles.badge}>Alcove</span>
+          </label>
+          <label className={styles.radioOption}>
+            <Field type="radio" name="form" value="panel_van" className={styles.radioInput} />
+            <span className={styles.badge}>Panel Van</span>
+          </label>
+          <label className={styles.radioOption}>
+            <Field type="radio" name="form" value="integrated" className={styles.radioInput} />
+            <span className={styles.badge}>Integrated</span>
+          </label>
+          <label className={styles.radioOption}>
+            <Field type="radio" name="form" value="semi_integrated" className={styles.radioInput} />
+            <span className={styles.badge}>Semi Integrated</span>
+          </label>
+      </div>
 
           {/* Engine */}
-
-            <p className={styles.radioTitle}>Engine</p>
-            <div className={styles.radioGroup}>
-              <label className={styles.radioOption}>
-                <Field
-                  type="radio"
-                  name="engine"
-                  value="diesel"
-                  className={styles.radioInput}
-                />
-                <span>Diesel</span>
-              </label>
-
-              <label className={styles.radioOption}>
-                <Field
-                  type="radio"
-                  name="engine"
-                  value="petrol"
-                  className={styles.radioInput}
-                />
-                <span>Petrol</span>
-              </label>
-
-              <label className={styles.radioOption}>
-                <Field
-                  type="radio"
-                  name="engine"
-                  value="hybrid"
-                  className={styles.radioInput}
-                />
-                <span>Hybrid</span>
-              </label>
-
-              <label className={styles.radioOption}>
-                <Field
-                  type="radio"
-                  name="engine"
-                  value="electric"
-                  className={styles.radioInput}
-                />
-                <span>Electric</span>
-              </label>
-            </div>   
+          <p className={styles.radioTitle}>Engine</p>
+      <div className={styles.radioGroup}>
+          <label className={styles.radioOption}>
+            <Field type="radio" name="engine" value="diesel" className={styles.radioInput} />
+            <span className={styles.badge}>Diesel</span>
+          </label>
+          <label className={styles.radioOption}>
+            <Field type="radio" name="engine" value="petrol" className={styles.radioInput} />
+            <span className={styles.badge}>Petrol</span>
+          </label>
+          <label className={styles.radioOption}>
+            <Field type="radio" name="engine" value="hybrid" className={styles.radioInput} />
+            <span className={styles.badge}>Hybrid</span>
+          </label>
+          <label className={styles.radioOption}>
+            <Field type="radio" name="engine" value="electric" className={styles.radioInput} />
+            <span className={styles.badge}>Electric</span>
+          </label>
+      </div>
 
           {/* Transmission */}
-          
-            <p className={styles.radioTitle}>Transmission</p>
-            <div className={styles.radioGroup}>
-              <label className={styles.radioOption}>
-                <Field
-                  type="radio"
-                  name="transmission"
-                  value="automatic"
-                  className={styles.radioInput}
-                />
-                <span>Automatic</span>
-              </label>
+          <p className={styles.radioTitle}>Transmission</p>
+      <div className={styles.radioGroup}>
+          <label className={styles.radioOption}>
+            <Field type="radio" name="transmission" value="automatic" className={styles.radioInput}/>
+            <span className={styles.badge}>Automatic</span>
+          </label>
 
-              <label className={styles.radioOption}>
-                <Field
-                  type="radio"
-                  name="transmission"
-                  value="manual"
-                  className={styles.radioInput}
-                />
-                <span>Manual</span>
-              </label>
-            </div>   
+          <label className={styles.radioOption}>
+            <Field type="radio" name="transmission" value="manual" className={styles.radioInput}/>
+            <span className={styles.badge}>Manual</span>
+          </label>
+      </div>
 
           {/* Кнопки */}
           <div className={styles.buttons}>
@@ -177,4 +120,4 @@ export default function Filters({ onApply }: FiltersProps) {
       )}
     </Formik>
   );
-} 
+}

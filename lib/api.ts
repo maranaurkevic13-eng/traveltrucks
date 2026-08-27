@@ -3,10 +3,18 @@ import { Camper, CamperListResponse, BookingData, Review } from "@/types/camper"
 
 const API_URL = "https://campers-api.goit.study";
 
-export const getCampers = async (page: number, filters: string): Promise<CamperListResponse> => {
-  const res = await axios.get(`${API_URL}/campers?page=${page}&limit=4${filters}`);
-  return res.data;
+export const getCampers = async (
+  page: number,
+  filters: string
+): Promise<CamperListResponse> => {
+  const url = filters
+    ? `${API_URL}/campers?page=${page}&limit=4&${filters}`
+    : `${API_URL}/campers?page=${page}&limit=4`;
+
+  const res = await axios.get(url);
+  return res.data; // це масив кемперів
 };
+
 
 export const getCamperById = async (id: string): Promise<Camper | null> => {
   try {
@@ -28,7 +36,10 @@ export const getCamperReviews = async (id: string): Promise<Review[]> => {
   return res.data;
 };
 
-export const bookCamper = async (id: string, data: BookingData): Promise<{ success: boolean }> => {
+export const bookCamper = async (
+  id: string,
+  data: BookingData
+): Promise<{ success: boolean }> => {
   const res = await axios.post(`${API_URL}/campers/${id}/booking-requests`, data);
   return res.data;
 };

@@ -33,11 +33,18 @@ export default function CamperCard({ camper }: CamperCardProps) {
           </div>
           </div>
         <p className={styles.description}>{camper.description.slice(0, 80)}...</p>
-        <div>
-          <MdLocalGasStation />
-          <LiaSitemapSolid />
-          <RiCarFill/>
-        </div>
+        {/* Динамічні бейджі */}
+    <div className={styles.tags}>
+          <span className={styles.tag}>
+            <MdLocalGasStation/>
+            {camper.engine}</span>
+          <span className={styles.tag}>
+            <LiaSitemapSolid/>
+            {camper.transmission}</span>
+          <span className={styles.tag}>
+            <RiCarFill/>
+            {camper.form}</span>
+    </div>
       <a href={`/catalog/${camper.id}`} target="_blank">
         <button className={styles.button}>Show more</button>
       </a>

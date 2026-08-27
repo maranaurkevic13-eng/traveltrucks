@@ -87,6 +87,28 @@
     color: #4a5568;
 }
 
+.tags {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.tag {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 100px;
+    padding: 12px 18px;
+    height: 48px;
+    background: var(--badges);
+    mix-blend-mode: multiply;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    color: var(--main);
+}
+
 .button {
     border-radius: 200px;
     padding: 16px 60px;

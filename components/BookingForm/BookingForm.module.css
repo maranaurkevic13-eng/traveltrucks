@@ -1,12 +1,31 @@
 .formWrapper {
-    max-width: 400px;
-    margin: 20px auto;
+    border: 1px solid var(--gray-light);
+        border-radius: 16px;
+        padding: 44px;
+        width: 641px;
+        height: 100%;
+}
+
+.formTitle {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 120%;
+        color: var(--main);
+        margin-bottom: 8px;
+}
+
+.formdesc {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        color: var(--gray);
+        margin-bottom: 24px;
 }
 
 .form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 14px;
 }
 
 .label {
@@ -16,18 +35,27 @@
 }
 
 .input {
-    padding: 8px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
+    border-radius: 12px;
+        padding: 18px 337px 18px 18px;
+        width: 527px;
+        height: 60px;
+        background: var(--inputs);
+        border: none;
 }
 
 .button {
-    padding: 10px;
-    background: #2a7a2a;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
+    border-radius: 200px;
+        padding: 16px 60px;
+        width: 527px;
+        height: 56px;
+        background: var(--grey-green);
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 150%;
+            letter-spacing: -0.01em;
+            color: var(--white);
+            border: none;
+            margin-top: 8px;
 }
 
 .button:disabled {

@@ -23,8 +23,8 @@ export default function BookingForm({ camperId }: { camperId: string }) {
 
   return (
     <div className={styles.formWrapper}>
-      <h3>Book your campervan</h3>
-
+      <h3 className={styles.formTitle}>Book your campervan</h3>
+      <p className={styles.formdesc}>Stay connected! We are always ready to help you.</p>
       <Formik
         initialValues={{ name: "", email: "" }}
         validationSchema={BookingSchema}
@@ -48,14 +48,14 @@ export default function BookingForm({ camperId }: { camperId: string }) {
         {({ isSubmitting }) => (
           <Form className={styles.form}>
             <label className={styles.label}>
-              Name*
-              <Field type="text" name="name" className={styles.input} />
+              
+              <Field type="text" name="name" placeholder="Name*" className={styles.input} />
               <ErrorMessage name="name" component="div" className={styles.error} />
             </label>
 
             <label className={styles.label}>
-              Email*
-              <Field type="email" name="email" className={styles.input} />
+
+              <Field type="email" name="email" placeholder="Email*" className={styles.input} />
               <ErrorMessage name="email" component="div" className={styles.error} />
             </label>
 

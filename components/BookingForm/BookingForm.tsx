@@ -20,7 +20,7 @@ const BookingSchema = Yup.object().shape({
 
 export default function BookingForm({ camperId }: { camperId: string }) {
   const [loading, setLoading] = useState(false);
-
+console.log("BookingForm camperId:", camperId);
   return (
     <div className={styles.formWrapper}>
       <h3 className={styles.formTitle}>Book your campervan</h3>
@@ -29,35 +29,52 @@ export default function BookingForm({ camperId }: { camperId: string }) {
         initialValues={{ name: "", email: "" }}
         validationSchema={BookingSchema}
         onSubmit={async (values, { resetForm }) => {
-          setLoading(true);
-          try {
-            const res = await bookCamper(camperId, values);
-            if (res.success) {
-              toast.success("✅ Booking successful!");
-              resetForm();
-            } else {
-              toast.error("❌ Booking failed. Camper not found.");
-            }
-          } catch {
-            toast.error("❌ Error while booking. Please try again.");
-          } finally {
-            setLoading(false);
-          }
+  setLoading(true);
+  try {
+    const res = await bookCamper(camperId, values);
+
+    if (res.success) {
+      toast.success("✅ Booking successful!");
+    } else {
+      toast.error("❌ Booking failed. Camper not found.");
+    }
+
+  } catch {
+    toast.error("❌ Error while booking. Please try again.");
+  } finally {
+    resetForm({
+  values: { name: "", email: "" },
+  touched: {},
+  errors: {}
+});      // ← форма очищається завжди
+    setLoading(false);
+  }
         }}
+        
       >
-        {({ isSubmitting }) => (
+        
+        {({ isSubmitting, errors, touched }) => (
           <Form className={styles.form}>
-            <label className={styles.label}>
-              
-              <Field type="text" name="name" placeholder="Name*" className={styles.input} />
-              <ErrorMessage name="name" component="div" className={styles.error} />
-            </label>
+<label className={styles.label}>
+            {errors.name && touched.name && (
+                <span className={styles.inputTitle}>Name*</span>
+            )}
 
-            <label className={styles.label}>
+  <Field type="text" name="name" placeholder="Name*" className={`${styles.input} ${errors.name && touched.name ? styles.inputError : ""}`}/>
 
-              <Field type="email" name="email" placeholder="Email*" className={styles.input} />
-              <ErrorMessage name="email" component="div" className={styles.error} />
-            </label>
+  <ErrorMessage name="name" component="div" className={styles.error} />
+</label>
+
+<label className={styles.label}>
+              {errors.email && touched.email && (
+                  <span className={styles.inputTitle}>Email*</span>
+              )}
+
+  <Field type="email" name="email" placeholder="Email*" className={`${styles.input} ${errors.email && touched.email ? styles.inputError : ""}`}/>
+
+  <ErrorMessage name="email" component="div" className={styles.error} />
+</label>
+
 
             <button
               type="submit"

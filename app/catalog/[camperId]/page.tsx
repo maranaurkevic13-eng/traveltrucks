@@ -41,7 +41,7 @@ export default async function CamperPage({ params }: CamperPageProps) {
 
       
       <div>
-        <BookingForm camperId={camper.id} />
+       {camper.id && <BookingForm camperId={camper.id} />}
       </div>
     
       

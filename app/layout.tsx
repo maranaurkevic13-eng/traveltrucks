@@ -6,6 +6,7 @@ import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
 import Header from "@/components/Header/Header";
 import { Toaster } from "react-hot-toast";
 // import { GlobalLoader } from "@/components/GlobalLoader/GlobalLoader";
+import { ToastContainer } from "react-toastify";
 
 // Шрифти
 const inter = Inter({
@@ -52,7 +53,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="appShell">
             <Header />
             <Toaster position="top-right" reverseOrder={false} />
-            <main>{children}</main>
+            <main>{children}
+              <ToastContainer position="top-right" autoClose={3000} />
+            </main>
           </div>
           {/* <GlobalLoader /> */}
         </TanStackProvider>

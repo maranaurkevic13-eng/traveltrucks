@@ -35,14 +35,24 @@
 
 .detailsList {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px 20px;
-    list-style: none;
+    grid-template-columns: 1fr 1fr;
+    /* дві колонки */
+    row-gap: 16px;
+    column-gap: 32px;
+    margin-top: 24px;
     padding: 0;
-    margin: 0;
+    list-style: none;
 }
 
 .detailsList li {
-    font-size: 15px;
-    line-height: 1.4;
+    font-size: 16px;
+    color: #475467;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+}
+
+.detailsList li span {
+    color: #101828;
+    font-weight: 600;
 }

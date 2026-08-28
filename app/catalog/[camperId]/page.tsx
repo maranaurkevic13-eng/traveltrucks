@@ -3,6 +3,7 @@ import Gallery from "@/components/Gallery/Gallery";
 import css from "./camperld.module.css";
 import CamperDetails from "@/components/CamperDetails/CamperDetails";
 import BookingForm from "@/components/BookingForm/BookingForm";
+import Reviews from "@/components/Reviews/Reviews";
 
 interface CamperPageProps {
   params: Promise<{ camperId: string }>;
@@ -24,25 +25,18 @@ export default async function CamperPage({ params }: CamperPageProps) {
       <div>
         <CamperDetails camper={camper} />
       </div>
-
-
+    <div className={css.reviewsContent}>
+     <h3 className={css.title}>Reviews</h3>
       <div>
-        <h3>Reviews ({reviews.length})</h3>
-      <ul>
-        {reviews.map((r) => (
-          <li key={r.id}>
-            <strong>{r.user}</strong> — {r.rating}★
-            <p>{r.comment}</p>
-          </li>
-        ))}
-      </ul>
-      </div>
+       <Reviews reviews={reviews} />
+        </div>
+        </div>
 
 
       
       <div>
        {camper.id && <BookingForm camperId={camper.id} />}
-      </div>
+        </div>
     
       
     </div>

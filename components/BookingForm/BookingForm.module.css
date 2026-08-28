@@ -93,3 +93,18 @@
     font-weight: bold;
 }
 
+.inputWrapper {
+    position: relative;
+    width: 527px;
+}
+
+.inputErrorIcon {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: var(--button);
+    pointer-events: none;
+}
+

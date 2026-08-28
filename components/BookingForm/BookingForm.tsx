@@ -6,6 +6,7 @@ import { bookCamper } from "@/lib/api";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { MdErrorOutline } from "react-icons/md";
 
 import styles from "./BookingForm.module.css";
 
@@ -60,8 +61,20 @@ console.log("BookingForm camperId:", camperId);
                 <span className={styles.inputTitle}>Name*</span>
             )}
 
-  <Field type="text" name="name" placeholder="Name*" className={`${styles.input} ${errors.name && touched.name ? styles.inputError : ""}`}/>
+  <div className={styles.inputWrapper}>
+    <Field
+      type="text"
+      name="name"
+      placeholder="Name*"
+      className={`${styles.input} ${
+        errors.name && touched.name ? styles.inputError : ""
+      }`}
+    />
 
+    {errors.name && touched.name && (
+      <MdErrorOutline className={styles.inputErrorIcon} />
+    )}
+  </div>
   <ErrorMessage name="name" component="div" className={styles.error} />
 </label>
 
@@ -70,8 +83,20 @@ console.log("BookingForm camperId:", camperId);
                   <span className={styles.inputTitle}>Email*</span>
               )}
 
-  <Field type="email" name="email" placeholder="Email*" className={`${styles.input} ${errors.email && touched.email ? styles.inputError : ""}`}/>
+ <div className={styles.inputWrapper}>
+    <Field
+      type="email"
+      name="email"
+      placeholder="Email*"
+      className={`${styles.input} ${
+        errors.email && touched.email ? styles.inputError : ""
+      }`}
+    />
 
+    {errors.email && touched.email && (
+      <MdErrorOutline className={styles.inputErrorIcon} />
+    )}
+  </div>
   <ErrorMessage name="email" component="div" className={styles.error} />
 </label>
 

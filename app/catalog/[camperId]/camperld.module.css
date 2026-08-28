@@ -2,11 +2,25 @@
     display: flex;
     flex-wrap: wrap;
     column-gap: 24px;
-    row-gap: 88px;
+    row-gap: 144px;
     padding: 64px;
 }
 
 .container>div {
     flex: 0 0 calc(50% - 24px);
     /* кожна картка займає половину ширини */
+}
+
+.title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 133%;
+    color: var(--main);
+    margin-bottom: 24px;
+}
+
+.reviewsContent {
+    display: flex;
+    flex-direction: column;
+    margin-top: -54px;
 }

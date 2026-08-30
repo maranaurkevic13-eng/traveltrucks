@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   title: "TravelTrucks",
   description: "Camper rental catalog",
   icons: {
-    icon: "/favicon.png", 
+    icon: "/favicon.svg", 
   },
   openGraph: {
     title: "TravelTrucks",

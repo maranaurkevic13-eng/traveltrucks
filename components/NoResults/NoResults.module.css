@@ -36,6 +36,11 @@
 }
 
 .clearBtn {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    gap: 4px;
     border: 1px solid var(--gray-light);
     border-radius: 200px;
     padding: 16px 32px;

@@ -18,21 +18,24 @@ export default function CamperDetails({ camper }: { camper: Camper }) {
   return (
       <div className={styles.detailsWrapper}>
           <div className={styles.infoList}>
-              <h2>{camper.name}</h2>
-              <div className={styles.ratingContent}>
+        <h2 className={styles.infoTitle}>{camper.name}</h2>
+        <div className={styles.infoContainer}>
+          <div className={styles.ratingContent}>
                 <FaStar fill="#FFC531"/>
                 <p className={styles.reting}>{camper.rating} ({camper.totalReviews} Reviews)</p>
               </div>
-              <div className={styles.locationIcon}>
+              <div className={styles.locationContainer}>
               <BsMap/>
               <p className={styles.location}>{camper.location}</p>
               </div>
+        </div>
+              
               <p className={styles.price}>€{camper.price}</p>
               <p>{camper.description}</p>
           </div>
 
           <div className={styles.detailsContainer}>
-            <h3>Vehicle details</h3>
+            <h3 className={styles.detailsTitle}>Vehicle details</h3>
               {Array.isArray(camper.amenities) && (
                 <ul className={styles.featuresList}>
                   {(() => {
@@ -54,15 +57,16 @@ export default function CamperDetails({ camper }: { camper: Camper }) {
                           return finalList.map((amenity, i) => <li key={i}>{formatTag(amenity)}</li>);
                 })()}
                 </ul>
-              )} 
+        )}
+        <div className={styles.detailsLength}></div>
         <ul className={styles.detailsList}>
-           <li>Form {camper.form}</li>
-           <li>Length {camper.length}</li>
-           <li>Width {camper.width}</li>
-           <li>Height {camper.height}</li>
-           <li>Tank {camper.tank}</li>
-           <li>Consumption {camper.consumption}</li>
-      </ul>  
+            <li><span>Form</span><span>{formatTag(camper.form)}</span></li>
+            <li><span>Length</span><span>{camper.length}</span></li>
+            <li><span>Width</span><span>{camper.width}</span></li>
+            <li><span>Height</span><span>{camper.height}</span></li>
+            <li><span>Tank</span><span>{camper.tank}</span></li>
+            <li><span>Consumption</span><span>{camper.consumption}</span></li>
+        </ul>
         </div>
     </div>
   );

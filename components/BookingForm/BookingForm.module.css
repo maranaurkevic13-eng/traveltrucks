@@ -34,6 +34,7 @@
     flex-direction: column;
     font-weight: 500;
     z-index: 11;
+    border: none;
 }
 
 .input {

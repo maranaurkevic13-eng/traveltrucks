@@ -17,15 +17,44 @@
     line-height: 150%;
     color: var(--gray);
     margin-bottom: 40px;
+    outline: none;
+    border: none;
+}
+
+.inputWrapper {
+    position: relative;
+    width: 312px;
+}
+
+.inputIcon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: var(--gray);
+    pointer-events: none;
 }
 
 .input {
     border-radius: 12px;
-    padding: 18px 0 18px 20px;
+    padding: 18px 18px 18px 48px;
     width: 312px;
     background: var(--white);
     height: 56px;
     border: none;
+    outline: none;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--main);
+}
+
+.input::placeholder {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--gray);
+    opacity: 1;
 }
 
 .select {
@@ -35,14 +64,7 @@
     border: 1px solid var(--gray-light);
     font-size: 16px;
     line-height: 150%;
-}
-
-.input::placeholder {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 150%;
-    color: var(--main);
-}
+}   
 
 .formTitle {
     font-weight: 600;
@@ -120,6 +142,11 @@
 }
 
 .clearBtn {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    gap: 4px;
     border: 1px solid var(--gray-light);
     border-radius: 200px;
     padding: 16px 32px;

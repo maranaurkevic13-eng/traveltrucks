@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
-import "./globals.css";
-// import "./container.css";
+import "./globals.css"; 
 import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
 import Header from "@/components/Header/Header";
-import { Toaster } from "react-hot-toast";
-// import { GlobalLoader } from "@/components/GlobalLoader/GlobalLoader";
+import { Toaster } from "react-hot-toast"; 
 import { ToastContainer } from "react-toastify";
 
 // Шрифти
@@ -27,16 +25,16 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "TravelTrucks",
   description: "Camper rental catalog",
-  // icons: {
-  //   icon: "/favicon.ico", // або /favicon.svg у public/
-  // },
+  icons: {
+    icon: "/favicon.png", 
+  },
   openGraph: {
     title: "TravelTrucks",
     url: "http://localhost:3000/",
     description: "Browse and book campers with TravelTrucks",
     images: [
       {
-        url: "/public/hero.jpg", // 👈 зроби картинку у public/
+        url: "/noResults.png", 
         width: 1200,
         height: 630,
         alt: "TravelTrucks",

@@ -3,6 +3,8 @@
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import styles from "./Filters.module.css";
+import { BsMap } from "react-icons/bs";
+import { RxCross2 } from "react-icons/rx";
 
 interface FiltersProps {
   onApply: (filters: string) => void;
@@ -35,11 +37,14 @@ export default function Filters({ onApply }: FiltersProps) {
           {/* Location */}
           <label className={styles.labelInput}>
             Location
-            <Field
-              name="location"
-              placeholder="City"
-              className={styles.input}
-            />
+             <div className={styles.inputWrapper}>
+    <BsMap className={styles.inputIcon} />
+    <Field
+      name="location"
+      placeholder="City"
+      className={styles.input}
+    />
+  </div>
           </label>
 
           <h3 className={styles.formTitle}>Filters</h3>
@@ -113,6 +118,7 @@ export default function Filters({ onApply }: FiltersProps) {
               }}
               className={styles.clearBtn}
             >
+              <RxCross2/>
               Clear filters
             </button>
           </div>

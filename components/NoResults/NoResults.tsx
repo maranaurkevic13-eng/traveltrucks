@@ -2,6 +2,7 @@
 
 import css from "./NoResults.module.css";
 import Image from "next/image";
+import { RxCross2 } from "react-icons/rx";
 
 export default function NoResults({ onClear }: { onClear: () => void }) {
   return (
@@ -18,7 +19,9 @@ export default function NoResults({ onClear }: { onClear: () => void }) {
        We couldn`t find any campers that match your filters.Try adjusting your search or clearing some filters.
       </p>
       <div className={css.actions}>
-        <button className={css.clearBtn} onClick={onClear}>Clear filters</button>
+        <button className={css.clearBtn} onClick={onClear}>
+          <RxCross2/>
+          Clear filters</button>
         <button className={css.viewAllBtn} onClick={onClear}>View all campers</button>
       </div>
     </div>

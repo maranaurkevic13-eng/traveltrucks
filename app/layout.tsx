@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     description: "Browse and book campers with TravelTrucks",
     images: [
       {
-        url: "/noResults.png", 
+        url: "/favicon.png", 
         width: 1200,
         height: 630,
         alt: "TravelTrucks",
